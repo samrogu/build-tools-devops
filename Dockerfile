@@ -48,7 +48,8 @@ RUN curl -sSL https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_V
     tar -xzf trivy.tar.gz && \
     mv trivy /usr/local/bin/ && \
     rm trivy.tar.gz
-
+# Instalar plugin de autenticación para GKE
+RUN gcloud components install gke-gcloud-auth-plugin
 # Validar versiones
 RUN gcloud --version && kubectl version --client && helm version
 
